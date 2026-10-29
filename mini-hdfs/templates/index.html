@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini HDFS Demo</title>
+    <style>
+        body { margin: 0; padding: 30px; background: #f4f7fb; color: #1e293b; font-family: Arial, sans-serif; }
+        .container { max-width: 1100px; margin: auto; }
+        h1 { margin-bottom: 5px; color: #0f172a; }
+        .subtitle { margin-top: 0; color: #64748b; }
+        .panel { margin-top: 24px; padding: 22px; background: white; border-radius: 12px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08); }
+        .nodes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .node { padding: 18px; border: 2px solid #cbd5e1; border-radius: 10px; text-align: center; }
+        .online { background: #ecfdf5; border-color: #10b981; }
+        .offline { background: #fef2f2; border-color: #ef4444; }
+        table { width: 100%; margin-top: 15px; border-collapse: collapse; }
+        th, td { padding: 12px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+        th { background: #f8fafc; }
+        button, .button { display: inline-block; padding: 9px 14px; border: none; border-radius: 7px; background: #2563eb; color: white; text-decoration: none; cursor: pointer; }
+        .danger { background: #dc2626; }
+        input[type="file"] { margin-right: 10px; }
+        .empty { padding: 20px; color: #64748b; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Mini HDFS Demo</h1>
+    <p class="subtitle">Distributed storage, block replication and fault tolerance</p>
+    <div class="panel">
+        <h2>Cluster Status</h2>
+        <div class="nodes">
+            {% for node, available in node_status.items() %}
+            <div class="node {{ 'online' if available else 'offline' }}">
+                <h3>{{ node }}</h3>
+                {% if available %}<strong>ONLINE</strong>{% else %}<strong>OFFLINE</strong>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <p>Block size: <strong>{{ block_size }} bytes</strong> | Replication factor: <strong>{{ replication_factor }}</strong></p>
+        <a class="button" href="/cluster" target="_blank">View Cluster Details</a>
+    </div>
+    <div class="panel">
+        <h2>Upload a File</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload to Mini HDFS</button>
+        </form>
+    </div>
+    <div class="panel">
+        <h2>Files Stored in the Cluster</h2>
+        {% if files %}
+        <table>
+            <thead>
+                <tr><th>File</th><th>Size</th><th>Blocks</th><th>Replication</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+                {% for filename, information in files.items() %}
+                <tr>
+                    <td>{{ filename }}</td>
+                    <td>{{ information.file_size }} bytes</td>
+                    <td>{{ information.number_of_blocks }}</td>
+                    <td>{{ information.replication_factor }}</td>
+                    <td>
+                        <a class="button" href="/download/{{ filename }}">Download</a>
+                        <a class="button" href="/metadata/{{ filename }}" target="_blank">Metadata</a>
+                        <form action="/delete/{{ filename }}" method="post" style="display: inline;">
+                            <button type="submit" class="danger" onclick="return confirm('Delete this file?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="empty">No files have been uploaded.</div>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

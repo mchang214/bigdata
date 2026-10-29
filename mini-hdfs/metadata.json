@@ -1,0 +1,81 @@
+{
+    "video_test.mp4": {
+        "original_filename": "video_test.mp4",
+        "file_size": 3114374,
+        "file_hash": "5e70b96ad27dc8581424be7069ee9de8da9388b716e6fe213d88385f19baf80a",
+        "number_of_blocks": 7,
+        "replication_factor": 2,
+        "blocks": [
+            {
+                "index": 0,
+                "block_name": "video_test.mp4.block_0000",
+                "size": 512000,
+                "hash": "eab2bdd1000c523624f0398e595e1d129189b29059c905ae85a3f3fb4e898b6a",
+                "nodes": [
+                    "node_ducanh",
+                    "node_master_my_pc"
+                ]
+            },
+            {
+                "index": 1,
+                "block_name": "video_test.mp4.block_0001",
+                "size": 512000,
+                "hash": "b36b2ae61c8599f6848938a1c2ba6739c9775d2e2f728c4ba8475a0bf2dbbf56",
+                "nodes": [
+                    "node_khanhphong",
+                    "node_ducanh"
+                ]
+            },
+            {
+                "index": 2,
+                "block_name": "video_test.mp4.block_0002",
+                "size": 512000,
+                "hash": "3c6e8571cf4a9d8ba123a794fc57364abfb0ac9bf5b8cfa744b0e77d32caf6a2",
+                "nodes": [
+                    "node_khanhphong",
+                    "node_master_my_pc"
+                ]
+            },
+            {
+                "index": 3,
+                "block_name": "video_test.mp4.block_0003",
+                "size": 512000,
+                "hash": "d934e896b074562e55d58e5cac3444db05631557870ec32771b510903fbcd543",
+                "nodes": [
+                    "node_master_my_pc",
+                    "node_khanhphong"
+                ]
+            },
+            {
+                "index": 4,
+                "block_name": "video_test.mp4.block_0004",
+                "size": 512000,
+                "hash": "62998dfa118a08a3efc8329b5fbface0a78283f28506610153e40318acaf9068",
+                "nodes": [
+                    "node_ducanh",
+                    "node_master_my_pc"
+                ]
+            },
+            {
+                "index": 5,
+                "block_name": "video_test.mp4.block_0005",
+                "size": 512000,
+                "hash": "eb6f2e77466cd0aa1636ed7bce6b9ebfd9fb8ef6ae67c6df5082fa6284ee82a0",
+                "nodes": [
+                    "node_ducanh",
+                    "node_master_my_pc"
+                ]
+            },
+            {
+                "index": 6,
+                "block_name": "video_test.mp4.block_0006",
+                "size": 42374,
+                "hash": "c2ed61f3859bc39c79608eca007d131cd4d295f881c7f7a2f5eacc355e198bb8",
+                "nodes": [
+                    "node_ducanh",
+                    "node_master_my_pc"
+                ]
+            }
+        ]
+    }
+}

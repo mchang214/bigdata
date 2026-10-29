@@ -1,0 +1,18 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.tmp
+
+# Office temp files
+~$*
+
+# IDE
+.vscode/
+.idea/
+*.swp
