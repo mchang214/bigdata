@@ -40,10 +40,6 @@ bigdata/
 │   ├── datanode_master.py       # DataNode Worker (Port 6001)
 │   ├── pull_and_merge.py        # Script khôi phục P2P khi Master gặp sự cố
 │   └── metadata.json            # Siêu dữ liệu lưu trữ ánh xạ block & hash
-├── BAO_CAO_BTL_BIGDATA_MINI_HDFS.docx          # Báo cáo học thuật bản Word
-├── BAO_CAO_BTL_BIGDATA_MINI_HDFS_CAP_NHAT.docx # Báo cáo học thuật bản Word (Cập nhật Demo 3)
-├── BAO_CAO_MON_HOC_BIGDATA.md                  # Toàn văn báo cáo định dạng Markdown
-├── generate_docs.py             # Script tạo và xuất báo cáo Word chuẩn
 ├── sample_demo.txt              # File mẫu thử nghiệm
 └── README.md
 ```
